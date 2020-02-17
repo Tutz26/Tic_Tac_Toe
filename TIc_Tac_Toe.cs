@@ -20,13 +20,6 @@ namespace Tic_Tac_Toe
                 {' ',' ',' '},
                 {' ',' ',' '}};
         
-        static void Main(string[] args)
-        {
-            PrintMatrix();
-            AddValue('X', 0, 0);
-            PrintMatrix();
-            
-        }
 
         /// <summary>
         ///    Prints the Matrix
@@ -43,7 +36,7 @@ namespace Tic_Tac_Toe
                     line += matrix[y,x] + "|";
                 }
                 
-                line.Substring(0, line.Length - 1);
+                line = line.Substring(0, line.Length - 1);
                 Console.WriteLine(line);
                 Console.WriteLine("------");
             }
@@ -59,6 +52,66 @@ namespace Tic_Tac_Toe
         static void AddValue(char value, int y, int x){
                 //Necesitamos y, x
                 //Necesitamos el valor a agregar ("X", "0")
+
+                matrix[y,x] = value;
+        }
+
+        static void InputRequest()
+        {
+                Console.WriteLine("Escribe las coordenadas de la forma y,x en donde quieres hacer movimiento y presiona enter.");
+                string userInputCoordinates = Console.ReadLine();
+
+                //Quitar espacios
+                userInputCoordinates = userInputCoordinates.Replace(" ", "");
+
+                //Separar en un arreglo de valores diviendo por ","
+                string[] coordinates = userInputCoordinates.Split(",");
+
+                //Convertir en coordenadas tipo enter
+                int y = Convert.ToInt32(coordinates[0]);
+                int x = Convert.ToInt32(coordinates[1]);
+
+                AddValue('X', y, x);
+
+      
+      
+        static void Main(string[] args)
+        {
+            InputRequest();
+            PrintMatrix();
+
+            // bool gameEnded = false;
+            // int turns = 0;
+
+            // while (!gameEnded) {
+                
+            //     InputRequest();
+            //     turns++;
+                
+            //     //Check if user won
+            //     gameEnded = CHeckTHreeLines();
+
+
+            //     //End after 9 turns
+            //     if (turns >= 9) {
+            //         gameEnded = true;
+            //     }
+
+            //     if (!gameEnded) {
+
+            //         //AIRequest();
+            //         turns++;
+            //         //Check if AI won
+            //         gameEnded = CheckThreeLines();
+
+            //     }
+
+
+
+
+            }
+        }
+
 
 
         }
