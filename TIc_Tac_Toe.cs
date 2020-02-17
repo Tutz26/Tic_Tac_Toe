@@ -24,6 +24,7 @@ namespace Tic_Tac_Toe
         {
             PrintMatrix();
             AddValue('X', 0, 0);
+            PrintMatrix();
             
         }
 
