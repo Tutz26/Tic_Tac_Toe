@@ -159,6 +159,7 @@ namespace tic_tac_toe
                 }
             }
 
+            //Diagonals
             //[0,2] [1,1] [2,0]
              value = ' ';
              sameValue = true;
