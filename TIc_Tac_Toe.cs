@@ -39,7 +39,9 @@ namespace tic_tac_toe
                 }
                 line = line.Substring(0, line.Length - 1);
                 Console.WriteLine(line);
+                if(y != MATRIX_SIZE -1){
                 Console.WriteLine("------");
+                }
             }
         }
 
@@ -71,6 +73,9 @@ namespace tic_tac_toe
         }
 
 
+        /// <summary>
+        /// Ask for input values to the user.
+        /// </summary>
         static void InputRequest()
         {
             if(usedArea){
@@ -89,7 +94,10 @@ namespace tic_tac_toe
             AddValue('X', y, x);
         }
 
-        
+        /// <summary>
+        /// Review values to see if a line has been completed.
+        /// </summary>
+        /// <returns></returns>        
         static bool CheckLines()
         {
 
@@ -181,6 +189,12 @@ namespace tic_tac_toe
         }
 
 
+        /// <summary>
+        /// Check for value to be in Matrix.
+        /// </summary>
+        /// <param name="y"></param>
+        /// <param name="x"></param>
+        /// <returns></returns>
         static bool IsValueInMatrix(int y, int x)
         {
             bool isEmpty = matrix[y,x] == ' ';
@@ -188,6 +202,9 @@ namespace tic_tac_toe
         }
 
 
+        /// <summary>
+        /// Generate an ai input into the game.
+        /// </summary>
         static void AIRequest()
         {
             Random r = new Random();
@@ -208,6 +225,10 @@ namespace tic_tac_toe
         }
 
 
+        /// <summary>
+        /// Game core.
+        /// </summary>
+        /// <param name="args"></param>
         static void Main(string[] args)
         {
             bool gameEnded = false;
