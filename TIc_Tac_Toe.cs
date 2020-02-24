@@ -98,7 +98,7 @@ namespace tic_tac_toe
         /// Review values to see if a line has been completed.
         /// </summary>
         /// <returns></returns>        
-        static bool CheckLines()
+        static bool CheckForCompletedLine()
         {
 
             //Columns
@@ -119,7 +119,7 @@ namespace tic_tac_toe
                         sameValue = sameValue && (value == matrix[y,x]);
                    }
                 }
-                //sameVale determina si son iguales o no
+                //sameValue determina si son iguales o no
                 if (sameValue && value != ' ')
                 {
                     return true;
@@ -238,7 +238,7 @@ namespace tic_tac_toe
                 InputRequest();
                 turns++;
                 //Check if user won
-                gameEnded = CheckLines();    
+                gameEnded = CheckForCompletedLine();    
                 //End after 9 turns
                 if (turns >= 9)
                 {
@@ -248,7 +248,7 @@ namespace tic_tac_toe
                     AIRequest();
                     turns++;
                     //Check if AI won
-                    gameEnded = CheckLines();    
+                    gameEnded = CheckForCompletedLine();    
                 }                 
                 PrintMatrix();
 
